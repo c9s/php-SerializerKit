@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.4.10" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0        http://pear.php.net/dtd/tasks-1.0.xsd        http://pear.php.net/dtd/package-2.0        http://pear.php.net/dtd/package-2.0.xsd">
+  <name>SerializerKit</name>
+  <channel>pear.corneltek.com</channel>
+  <summary>Data Serializer</summary>
+  <description>Data Serializer</description>
+  <lead>
+    <name>Yo-An Lin</name>
+    <user/>
+    <email>cornelius.howl@gmail.com</email>
+    <active>yes</active>
+  </lead>
+  <date>2012-03-14</date>
+  <time>21:11:27</time>
+  <version>
+    <release>1.0.0</release>
+    <api>1.0.0</api>
+  </version>
+  <stability>
+    <release>stable</release>
+    <api>stable</api>
+  </stability>
+  <license>PHP</license>
+  <notes>-</notes>
+  <contents>
+    <dir name="/">
+      <file name="tests/XmlSerializerTest.php" role="test" md5sum="fa1a14eff3b90e93b8f843c324f3446a"/>
+      <file name="tests/bootstrap.php" role="test" md5sum="6d84a2d9dcb07ecb2441b92dcdd26acd"/>
+      <file name="src/SerializerKit/JsonSerializer.php" role="php" md5sum="e79ef87a0888ed792f1682d93d17a159"/>
+      <file name="src/SerializerKit/XmlSerializer.php" role="php" md5sum="03fd4ae66fd121b7cffb14f29626aee4"/>
+      <file name="src/SerializerKit/YamlSerializer.php" role="php" md5sum="146a8df56a722f003703d5745b7dfd97"/>
+      <file name="package.ini" role="data" md5sum="dab36f7ad25fa3fd3fd3a6d3fd90da3d"/>
+      <file name="phpunit.xml" role="data" md5sum="363519b86a5ac6aac0b747dc4760d828"/>
+    </dir>
+  </contents>
+  <dependencies>
+    <required>
+      <php>
+        <min>5.3</min>
+      </php>
+      <pearinstaller>
+        <min>1.4</min>
+      </pearinstaller>
+      <package>
+        <name>Universal</name>
+        <channel>pear.corneltek.com</channel>
+        <min>0.0.0</min>
+      </package>
+      <package>
+        <name>PHPUnit_TestMore</name>
+        <channel>pear.corneltek.com</channel>
+        <min>0.0.0</min>
+      </package>
+    </required>
+  </dependencies>
+  <phprelease>
+    <filelist>
+      <install name="tests/XmlSerializerTest.php" as="XmlSerializerTest.php"/>
+      <install name="tests/bootstrap.php" as="bootstrap.php"/>
+      <install name="src/SerializerKit/JsonSerializer.php" as="SerializerKit/JsonSerializer.php"/>
+      <install name="src/SerializerKit/XmlSerializer.php" as="SerializerKit/XmlSerializer.php"/>
+      <install name="src/SerializerKit/YamlSerializer.php" as="SerializerKit/YamlSerializer.php"/>
+      <install name="package.ini" as="package.ini"/>
+      <install name="phpunit.xml" as="phpunit.xml"/>
+    </filelist>
+  </phprelease>
+</package>
