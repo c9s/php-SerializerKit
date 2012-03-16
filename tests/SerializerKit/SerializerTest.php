@@ -21,5 +21,6 @@ class SerializerTest extends PHPUnit_Framework_TestCase
             is( 'bar', $data2['string_test'] );
         }
     }
+
 }
 
