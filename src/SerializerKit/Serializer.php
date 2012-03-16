@@ -41,7 +41,7 @@ class Serializer
         return $this->serializer->encode( $data );
     }
 
-    public function decode($string)
+    public function decode($data)
     {
         return $this->serializer->decode( $data );
     }
