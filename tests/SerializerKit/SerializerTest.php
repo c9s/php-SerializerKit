@@ -7,6 +7,8 @@ class SerializerTest extends PHPUnit_Framework_TestCase
         $data = array( 
             'foo' => 1,
             'string_test' => 'bar',
+            'float' => 1.00001,
+            'array' => array( 'subarray' => 1 ),
         );
 
         $formats = array( 'xml', 'json', 'bson', 'yaml' );
@@ -14,17 +16,18 @@ class SerializerTest extends PHPUnit_Framework_TestCase
             $serializer = new SerializerKit\Serializer('xml');
             $string = $serializer->encode($data);
             $data2 = $serializer->decode($string);
-            ok( $data2['foo'] );
-            is( 1, $data2['foo'] );
 
-            ok( $data2['string_test'] );
-            is( 'bar', $data2['string_test'] );
+            foreach( $data as $k => $v ) {
+                ok( $data2[ $k ] );
+                is( $v , $data2[ $k ] );
+            }
         }
     }
 
     function testPhp()
     {
         $data = array( 
+            'float' => 1.1,
             'foo' => function() { return 123; }
         );
 
@@ -32,8 +35,10 @@ class SerializerTest extends PHPUnit_Framework_TestCase
         $string = $serializer->encode($data);
         $data2 = $serializer->decode($string);
 
-        ok( $data2['foo'] );
-        is( 123, $data2['foo']() );
+        foreach( $data as $k => $v ) {
+            ok( $data2[ $k ] );
+            is( $v , $data2[ $k ] );
+        }
     }
 
 }
