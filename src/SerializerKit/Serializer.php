@@ -7,13 +7,33 @@ class Serializer
 
     public $serializer;
 
-    function __construct($format)
+    public $handlers = array(
+        'xml' => 'SerializerKit\XmlSerializer',
+        'json' => 'SerializerKit\JsonSerializer',
+        'yaml' => 'SerializerKit\YamlSerializer',
+        'bson' => 'SerializerKit\BsonSerializer',
+    );
+
+    function __construct($format = null)
+    {
+        if( $format )
+            $this->setFormat($format);
+    }
+
+    public function setFormat($format)
     {
         $this->format = $format;
 
-        // create serializer handler
-        $class = 'SerializerKit\\' . ucfirst($format) . 'Serializer';
+        if( ! isset($this->handlers[ $this->format ] ) )
+            throw new Exception("Format {$this->format} is not supported.");
+
+        $class = $this->handlers[ $this->format ];
         $this->serializer = new $class;
+    }
+
+    public function register($format,$class) 
+    {
+        $this->handlers[ $format ] = $class;
     }
 
     public function encode($data)
