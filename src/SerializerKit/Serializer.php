@@ -8,10 +8,11 @@ class Serializer
     public $serializer;
 
     public $handlers = array(
-        'xml' => 'SerializerKit\XmlSerializer',
-        'json' => 'SerializerKit\JsonSerializer',
-        'yaml' => 'SerializerKit\YamlSerializer',
-        'bson' => 'SerializerKit\BsonSerializer',
+        'xml'     => 'SerializerKit\XmlSerializer',
+        'json'    => 'SerializerKit\JsonSerializer',
+        'yaml'    => 'SerializerKit\YamlSerializer',
+        'bson'    => 'SerializerKit\BsonSerializer',
+        'generic' => 'SerializerKit\GenericSerializer',
     );
 
     function __construct($format = null)
