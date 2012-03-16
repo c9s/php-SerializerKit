@@ -13,13 +13,18 @@ class SerializerTest extends PHPUnit_Framework_TestCase
 
         $formats = array( 'xml', 'json', 'bson', 'yaml' );
         foreach( $formats as $format ) {
-            $serializer = new SerializerKit\Serializer('xml');
+            ok( $format );
+
+            $serializer = new SerializerKit\Serializer($format);
+            ok( $serializer );
+
             $string = $serializer->encode($data);
+            ok($string, $format );
             $data2 = $serializer->decode($string);
 
             foreach( $data as $k => $v ) {
-                ok( $data2[ $k ] );
-                is( $v , $data2[ $k ] );
+                ok( $data2[ $k ] , $format );
+                is( $v , $data2[ $k ] , $format );
             }
         }
     }

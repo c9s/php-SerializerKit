@@ -15,6 +15,7 @@ class Serializer
         'yaml'    => 'SerializerKit\YamlSerializer',
         'bson'    => 'SerializerKit\BsonSerializer',
         'generic' => 'SerializerKit\GenericSerializer',
+        'msgpack' => 'SerializerKit\MsgPackSerializer',
     );
 
     function __construct($format = null)
