@@ -1,5 +1,6 @@
 <?php
 namespace SerializerKit;
+use Exception;
 
 class Serializer
 {
@@ -9,6 +10,7 @@ class Serializer
 
     public $handlers = array(
         'xml'     => 'SerializerKit\XmlSerializer',
+        'php'     => 'SerializerKit\PhpSerializer',
         'json'    => 'SerializerKit\JsonSerializer',
         'yaml'    => 'SerializerKit\YamlSerializer',
         'bson'    => 'SerializerKit\BsonSerializer',

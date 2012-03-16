@@ -22,5 +22,19 @@ class SerializerTest extends PHPUnit_Framework_TestCase
         }
     }
 
+    function testPhp()
+    {
+        $data = array( 
+            'foo' => function() { return 123; }
+        );
+
+        $serializer = new SerializerKit\Serializer('php');
+        $string = $serializer->encode($data);
+        $data2 = $serializer->decode($string);
+
+        ok( $data2['foo'] );
+        is( 123, $data2['foo']() );
+    }
+
 }
 
