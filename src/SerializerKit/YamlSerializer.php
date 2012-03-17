@@ -19,6 +19,10 @@ class YamlSerializer
             $this->backend = self::backend_yaml;
         }
         else {
+            // symfony YAML library
+            if( ! class_exists('sfYaml',true) ) {
+                require 'SymfonyComponents/YAML/sfYaml.php';
+            }
             $this->backend = self::backend_php;
         }
     }
