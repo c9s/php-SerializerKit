@@ -1,5 +1,7 @@
 <?php
 namespace SerializerKit;
+use Exception;
+use Spyc;
 
 class YamlSerializer
 {
@@ -11,7 +13,13 @@ class YamlSerializer
 
     function decode($data) 
     {
-        return yaml_parse($data); 
+        if( extension_loaded('yaml') ) {
+            return yaml_parse($data); 
+        } elseif( class_exists('Spyc',true) ) {
+            return Spyc::YAMLLoadString($data);
+        } else {
+            throw new Exception('php-yaml or Spyc is required.');
+        }
     }
 }
 
