@@ -10,11 +10,11 @@
     <email>cornelius.howl@gmail.com</email>
     <active>yes</active>
   </lead>
-  <date>2012-03-17</date>
-  <time>02:47:25</time>
+  <date>2012-03-18</date>
+  <time>02:39:41</time>
   <version>
-    <release>1.0.1</release>
-    <api>1.0.1</api>
+    <release>1.0.3</release>
+    <api>1.0.3</api>
   </version>
   <stability>
     <release>stable</release>
@@ -24,18 +24,18 @@
   <notes>-</notes>
   <contents>
     <dir name="/">
-      <file name="tests/bootstrap.php" role="test" md5sum="6d84a2d9dcb07ecb2441b92dcdd26acd"/>
       <file name="tests/SerializerKit/SerializerTest.php" role="test" md5sum="fa896ca7437819583ac8b122a4ba652a"/>
       <file name="tests/XmlSerializerTest.php" role="test" md5sum="fa1a14eff3b90e93b8f843c324f3446a"/>
+      <file name="tests/bootstrap.php" role="test" md5sum="6d84a2d9dcb07ecb2441b92dcdd26acd"/>
       <file name="src/SerializerKit/BsonSerializer.php" role="php" md5sum="59e146f1302978fd631eeaf814edb398"/>
-      <file name="src/SerializerKit/GenericSerializer.php" role="php" md5sum="1f25c635aa00a86fd888a5ba6283dba5"/>
+      <file name="src/SerializerKit/GenericPhpSerializer.php" role="php" md5sum="6c02723acac3aa9b0471f86b32dea7f4"/>
       <file name="src/SerializerKit/JsonSerializer.php" role="php" md5sum="037b46db1cf6f5f4be3c3870a369f490"/>
       <file name="src/SerializerKit/MsgPackSerializer.php" role="php" md5sum="fa58a90aa3918294f45312c54d50cfa5"/>
       <file name="src/SerializerKit/PhpSerializer.php" role="php" md5sum="991ea72e98104164b0ea80a14c9a98a7"/>
       <file name="src/SerializerKit/Serializer.php" role="php" md5sum="2043936191a5090599b675675dac47f9"/>
       <file name="src/SerializerKit/XmlSerializer.php" role="php" md5sum="03fd4ae66fd121b7cffb14f29626aee4"/>
-      <file name="src/SerializerKit/YamlSerializer.php" role="php" md5sum="146a8df56a722f003703d5745b7dfd97"/>
-      <file name="package.ini" role="data" md5sum="f5e83c3b3e4bed290bfbf235cdc7155c"/>
+      <file name="src/SerializerKit/YamlSerializer.php" role="php" md5sum="19677a356ece2e837ce7fcc2b0334906"/>
+      <file name="package.ini" role="data" md5sum="50f1eefd2d27c141e1dffc98a1b6207d"/>
       <file name="phpunit.xml" role="data" md5sum="363519b86a5ac6aac0b747dc4760d828"/>
     </dir>
   </contents>
@@ -57,15 +57,20 @@
         <channel>pear.corneltek.com</channel>
         <min>0.0.0</min>
       </package>
+      <package>
+        <name>YAML</name>
+        <channel>pear.symfony-project.com</channel>
+        <min>0.0.0</min>
+      </package>
     </required>
   </dependencies>
   <phprelease>
     <filelist>
-      <install name="tests/bootstrap.php" as="bootstrap.php"/>
       <install name="tests/SerializerKit/SerializerTest.php" as="SerializerKit/SerializerTest.php"/>
       <install name="tests/XmlSerializerTest.php" as="XmlSerializerTest.php"/>
+      <install name="tests/bootstrap.php" as="bootstrap.php"/>
       <install name="src/SerializerKit/BsonSerializer.php" as="SerializerKit/BsonSerializer.php"/>
-      <install name="src/SerializerKit/GenericSerializer.php" as="SerializerKit/GenericSerializer.php"/>
+      <install name="src/SerializerKit/GenericPhpSerializer.php" as="SerializerKit/GenericPhpSerializer.php"/>
       <install name="src/SerializerKit/JsonSerializer.php" as="SerializerKit/JsonSerializer.php"/>
       <install name="src/SerializerKit/MsgPackSerializer.php" as="SerializerKit/MsgPackSerializer.php"/>
       <install name="src/SerializerKit/PhpSerializer.php" as="SerializerKit/PhpSerializer.php"/>

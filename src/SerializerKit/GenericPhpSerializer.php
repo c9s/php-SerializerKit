@@ -4,7 +4,7 @@ namespace SerializerKit;
 /**
  * Use PHP Built-in serializer
  */
-class GenericSerializer
+class GenericPhpSerializer
 {
 
     public function encode($data)
