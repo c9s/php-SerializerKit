@@ -1,7 +1,42 @@
 <?php
-
+use SerializerKit\YamlSerializer;
 class SerializerTest extends PHPUnit_Framework_TestCase
 {
+
+    function dataProvider()
+    {
+        return array(
+            array(array(
+                'foo' => 1,
+                'string_test' => 'bar',
+                'float' => 1.00001,
+                'array' => array( 'subarray' => 1 )
+            )),
+        );
+    }
+
+
+    /**
+     * @dataProvider dataProvider
+     */
+    function testYaml($data)
+    {
+        $bs = array();
+
+        if( extension_loaded('yaml') )
+            $bs[] = YamlSerializer::yaml;
+
+        $bs[] = YamlSerializer::spyc;
+        foreach( $bs as $b ) {
+            $serializer = new SerializerKit\YamlSerializer( $b );
+            $yaml = $serializer->encode( $data );
+            $data = $serializer->decode( $yaml );
+            ok( $data );
+            ok( is_array( $data ));
+        }
+    }
+
+
     function test()
     {
         $data = array( 
