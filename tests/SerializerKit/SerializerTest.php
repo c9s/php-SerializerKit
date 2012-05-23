@@ -48,6 +48,9 @@ class SerializerTest extends PHPUnit_Framework_TestCase
 
         $formats = array( 'xml', 'json', 'bson', 'yaml' );
         foreach( $formats as $format ) {
+            if( ! extension_loaded($format) )
+                continue;
+
             ok( $format );
 
             $serializer = new SerializerKit\Serializer($format);
