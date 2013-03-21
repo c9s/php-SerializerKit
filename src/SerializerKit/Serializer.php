@@ -4,6 +4,10 @@ use Exception;
 
 class Serializer
 {
+
+    /**
+     * @var string $format 'json', 'xml'... etc
+     */
     public $format;
 
     public $serializer;
