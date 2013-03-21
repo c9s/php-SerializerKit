@@ -1,5 +1,5 @@
 {
-    "name": "corneltek/serializer-kit",
+    "name": "corneltek/serializerkit",
     "require": {
         "php": ">=5.3.0"
     },
