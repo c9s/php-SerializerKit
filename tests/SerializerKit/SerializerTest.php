@@ -1,5 +1,22 @@
 <?php
 use SerializerKit\YamlSerializer;
+
+class FooData {
+
+    public $data;
+
+    public function __construct($data)
+    {
+        $this->data = $data;
+    }
+
+    static function __set_state($vars) {
+        return new FooData($vars['data']);
+    }
+
+}
+
+
 class SerializerTest extends PHPUnit_Framework_TestCase
 {
 
@@ -67,7 +84,7 @@ class SerializerTest extends PHPUnit_Framework_TestCase
         }
     }
 
-    function testPhp()
+    function testPhpSerializer()
     {
         $data = array( 
             'float' => 1.1,
@@ -83,6 +100,22 @@ class SerializerTest extends PHPUnit_Framework_TestCase
             is( $v , $data2[ $k ] );
         }
     }
+
+
+    function testPhpSerializerWithObjectVarExport()
+    {
+        $foo = new FooData(array( 'foo' => 3 ));
+
+        $serializer = new SerializerKit\Serializer('php');
+        $string = $serializer->encode($foo);
+        ok($string);
+
+        $foo2 = $serializer->decode($string);
+        ok($foo2);
+        is(3,$foo2->data['foo']);
+
+    }
+
 
 }
 
