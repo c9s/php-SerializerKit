@@ -1,6 +1,6 @@
 {
     "name": "corneltek\/serializerkit",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "require": {
         "php": ">=5.3.0",
         "symfony\/yaml": "~2"
