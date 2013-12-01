@@ -40,10 +40,10 @@ class SerializerTest extends PHPUnit_Framework_TestCase
     {
         $bs = array();
 
-        if( extension_loaded('yaml') )
+        if ( extension_loaded('yaml') ) {
             $bs[] = YamlSerializer::yaml;
-
-        $bs[] = YamlSerializer::spyc;
+        }
+        $bs[] = YamlSerializer::sfyaml;
         foreach( $bs as $b ) {
             $serializer = new SerializerKit\YamlSerializer( $b );
             $yaml = $serializer->encode( $data );

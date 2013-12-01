@@ -1,8 +1,7 @@
 <?php
 namespace SerializerKit;
 use Exception;
-use Spyc;
-use sfYaml;
+use Symfony\Component\Yaml\Yaml as sfYaml;
 
 class YamlSerializer
 {
@@ -22,18 +21,9 @@ class YamlSerializer
 
         if( extension_loaded('yaml') ) {
             $this->backend = self::yaml;
-        }
-        elseif( extension_loaded('syck') ) {
+        } elseif( extension_loaded('syck') ) {
             $this->backend = self::syck;
-        }
-        elseif( class_exists('Spyc',true) ) {
-            $this->backend = self::spyc;
-        }
-        else {
-            // symfony YAML library
-            if( ! class_exists('sfYaml',true) ) {
-                require 'SymfonyComponents/YAML/sfYaml.php';
-            }
+        } else {
             $this->backend = self::sfyaml;
         }
     }
@@ -46,9 +36,6 @@ class YamlSerializer
                 break;
             case self::syck:
                 return syck_dump( $data );
-                break;
-            case self::spyc:
-                return Spyc::YAMLDump($data);
                 break;
             case self::sfyaml:
                 return sfYaml::dump($data,2);
@@ -65,11 +52,8 @@ class YamlSerializer
             case self::syck:
                 return syck_load($data);
                 break;
-            case self::spyc:
-                return Spyc::YAMLLoadString($data);
-                break;
             case self::sfyaml:
-                return sfYaml::load($data);
+                return sfYaml::parse($data);
                 break;
         }
         throw new Exception('can not decode yaml: extension or library is required.');
